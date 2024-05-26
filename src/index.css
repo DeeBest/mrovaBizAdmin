@@ -22,27 +22,93 @@ header,
 main,
 footer {
   min-width: 100%;
-  padding: 40px;
+  padding: 20px;
   display: flex;
 }
 header {
-  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 #logo-container {
   display: flex;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 #logo-container img {
   width: 5rem;
 }
 main {
   flex: 1;
+  border: 2px solid tomato;
+  gap: 15px;
+  justify-content: center;
+}
+p {
+  line-height: 1.5;
+}
+.cv-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  width: 40%;
+  font-size: 1.1rem;
+  font-weight: 540;
+  border: 2px solid tomato;
+}
+.cv-form h3 {
+  margin-bottom: 15px;
+}
+.cv-form input {
+  margin: 5px 0px 10px 0px;
+  font-size: 1rem;
+  font-weight: 520;
+  padding: 5px 10px;
+  min-width: 100%;
+  border: none;
+  border-radius: 10px;
+  color: #cbfef3;
+  background-color: #0f0b36;
+}
+.cv-form input:focus {
+  outline: 3px solid #bf5b27;
+}
+.cv-display {
+  width: 60%;
+  max-width: 600px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+  padding: 0px 10px 10px 10px;
+}
+.general-information {
+  display: flex;
+  gap: 10px;
+}
+.cv-display h3 {
+  margin: 10px 0px;
+}
+.personal-details {
+  width: 60%;
+}
+.personal-details div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.img-container {
+  max-width: 150px;
+  width: 40%;
+  margin-top: 10px;
+}
+.img-container img {
+  width: 100%;
+  border-radius: 20px;
 }
 footer {
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 550;
-  display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
@@ -51,13 +117,14 @@ footer {
 }
 footer .contact-icons {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   text-align: center;
   gap: 10px;
 }
 .contact-icons img {
-  width: 40px;
+  width: 3.5rem;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
   padding: 3px 6px;
   border-radius: 10px;
@@ -69,4 +136,28 @@ footer .contact-icons {
   box-shadow: none;
   transform: scale(0.98);
   transform: rotateZ(90deg);
+}
+
+@media screen and (max-width: 750px) {
+  main {
+    flex-direction: column;
+    /* text-align: center;
+    align-items: center;
+    justify-content: center; */
+  }
+  .cv-display,
+  .cv-form {
+    min-width: 100%;
+  }
+  .cv-form input {
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 460px) {
+  .general-information {
+    flex-direction: column;
+    /* align-items: center;
+    justify-content: center;
+    text-align: center; */
+  }
 }
