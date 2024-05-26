@@ -42,7 +42,6 @@ header {
 }
 main {
   flex: 1;
-  border: 2px solid tomato;
   gap: 15px;
   justify-content: center;
 }
@@ -56,7 +55,6 @@ p {
   width: 40%;
   font-size: 1.1rem;
   font-weight: 540;
-  border: 2px solid tomato;
 }
 .cv-form h3 {
   margin-bottom: 15px;
@@ -84,7 +82,7 @@ p {
 }
 .general-information {
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
 }
 .cv-display h3 {
   margin: 10px 0px;
@@ -141,9 +139,6 @@ footer .contact-icons {
 @media screen and (max-width: 750px) {
   main {
     flex-direction: column;
-    /* text-align: center;
-    align-items: center;
-    justify-content: center; */
   }
   .cv-display,
   .cv-form {
@@ -156,8 +151,16 @@ footer .contact-icons {
 @media screen and (max-width: 460px) {
   .general-information {
     flex-direction: column;
-    /* align-items: center;
-    justify-content: center;
-    text-align: center; */
+  }
+  .cv-display section {
+    min-width: 100%;
+  }
+  .personal-details-icons {
+    display: none;
+  }
+}
+@media screen and (max-width: 500px) {
+  .personal-details-icons {
+    display: none;
   }
 }

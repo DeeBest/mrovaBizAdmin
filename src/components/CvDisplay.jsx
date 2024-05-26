@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { MdOutlineEmail } from 'react-icons/md';
 import { FiPhone } from 'react-icons/fi';
 import { IoLocationOutline } from 'react-icons/io5';
 
-const CvDisplay = () => {
+const CvDisplay = (props) => {
   return (
     <div className="cv-display">
       <section className="general-information">
@@ -11,18 +12,18 @@ const CvDisplay = () => {
         </div>
         <div className="personal-details">
           <h3>General Information</h3>
-          <p>Simphiwe Dladla</p>
+          <p>{props.personalDetails.name}</p>
           <div>
-            <MdOutlineEmail />
-            <p>simphiwedladla8@gmail.com</p>
+            <MdOutlineEmail className="personal-details-icons" />
+            <p>{props.personalDetails.email}</p>
           </div>
           <div>
-            <FiPhone />
-            <p>+27732434548</p>
+            <FiPhone className="personal-details-icons" />
+            <p>{props.personalDetails.phoneNumber}</p>
           </div>
           <div>
-            <IoLocationOutline />
-            <p>Mpumalanga, South Africa</p>
+            <IoLocationOutline className="personal-details-icons" />
+            <p>{props.personalDetails.location}</p>
           </div>
         </div>
       </section>
