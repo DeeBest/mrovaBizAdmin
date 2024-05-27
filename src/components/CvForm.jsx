@@ -2,8 +2,26 @@
 import { IoIosArrowDown } from 'react-icons/io';
 import { FaUserGraduate } from 'react-icons/fa';
 import { FaBriefcase } from 'react-icons/fa6';
+import { useState } from 'react';
 
 const CvForm = (props) => {
+  const [educationExperience, setEducationExperience] = useState({
+    universityName: '',
+    qualification: '',
+    duration: '',
+    location: '',
+  });
+
+  const addQualification = () => {
+    props.setQualifications({
+      ...props.qualifications,
+      universityName: educationExperience.universityName,
+      qualificationName: educationExperience.qualification,
+      duration: educationExperience.duration,
+      location: educationExperience.location,
+    });
+  };
+
   return (
     <div className="cv-form">
       <h3 className="add-experience">Personal Information</h3>
@@ -79,6 +97,13 @@ const CvForm = (props) => {
               name="universityName"
               id="universityName"
               placeholder="University name..."
+              value={educationExperience.universityName}
+              onChange={(e) =>
+                setEducationExperience({
+                  ...educationExperience,
+                  universityName: e.target.value,
+                })
+              }
             />
             <label htmlFor="qualification">Qualification:</label>
             <input
@@ -86,10 +111,45 @@ const CvForm = (props) => {
               name="qualification"
               id="qualification"
               placeholder="Qualification name..."
+              value={educationExperience.qualification}
+              onChange={(e) =>
+                setEducationExperience({
+                  ...educationExperience,
+                  qualification: e.target.value,
+                })
+              }
+            />
+            <label htmlFor="location">Location:</label>
+            <input
+              type="text"
+              name="location"
+              id="location"
+              placeholder="Location..."
+              value={educationExperience.location}
+              onChange={(e) =>
+                setEducationExperience({
+                  ...educationExperience,
+                  location: e.target.value,
+                })
+              }
             />
             <label htmlFor="duration">Duration:</label>
-            <input type="text" name="duration" id="duration" />
-            <button className="save-education-btn">Save</button>
+            <input
+              type="text"
+              name="duration"
+              id="duration"
+              placeholder="Duration..."
+              value={educationExperience.duration}
+              onChange={(e) =>
+                setEducationExperience({
+                  ...educationExperience,
+                  duration: e.target.value,
+                })
+              }
+            />
+            <button onClick={addQualification} className="save-education-btn">
+              Save
+            </button>
           </form>
         </div>
       </div>

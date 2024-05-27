@@ -10,13 +10,25 @@ const Main = () => {
     location: 'Mpumalanga, South Africa',
   });
 
+  const [qualifications, setQualifications] = useState({
+    universityName: 'The Odin Projects University',
+    qualificationName: 'Frontend Developer',
+    duration: '05/2022 - Present',
+    location: 'www.theodinproject.com',
+  });
+
   return (
     <main>
       <CvForm
         personalDetails={personalDetails}
         setPersonalDetails={setPersonalDetails}
+        qualifications={qualifications}
+        setQualifications={setQualifications}
       />
-      <CvDisplay personalDetails={personalDetails} />
+      <CvDisplay
+        personalDetails={personalDetails}
+        qualifications={qualifications}
+      />
     </main>
   );
 };

@@ -26,9 +26,19 @@ const CvDisplay = (props) => {
       <section className="educational-experience">
         <h3>Education</h3>
         <hr />
-        <div className="qualification-details">
-          <h5 className="university-name">University Of Pretoria</h5>
-          <span>08/2014-12/2018</span>
+        <div className="qualification-container">
+          <div className="qualification-details">
+            <h5 className="university-name">
+              {props.qualifications.universityName}
+            </h5>
+            <h5 className="qualification-name">
+              {props.qualifications.qualificationName}
+            </h5>
+          </div>
+          <div className="qualification-details">
+            <span>{props.qualifications.location}</span>
+            <span>{props.qualifications.duration}</span>
+          </div>
         </div>
       </section>
       <section className="practical-experience">

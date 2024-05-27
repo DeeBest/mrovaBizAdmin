@@ -172,6 +172,9 @@ hr {
   background-color: #0f0b36;
   margin-bottom: 15px;
 }
+.qualification-container {
+  margin-bottom: 15px;
+}
 .qualification-details {
   display: flex;
   align-items: center;
