@@ -47,7 +47,10 @@ const CvDisplay = (props) => {
         <h3>Practical Experience</h3>
         <hr />
         {props.practicalExperiences.map((practicalExperience) => (
-          <div key={practicalExperience.id}>
+          <div
+            className="practical-experience-container"
+            key={practicalExperience.id}
+          >
             <div className="company&position qualification-details">
               <h5>{practicalExperience.companyName}</h5>
               <h5>{practicalExperience.position}</h5>
@@ -56,7 +59,13 @@ const CvDisplay = (props) => {
               <span>{practicalExperience.companyLocation}</span>
               <span>{practicalExperience.durationAtCompany}</span>
             </div>
-            <div className="duties-description" style={{ marginTop: '5px' }}>
+            <div
+              className="duties-description"
+              style={{
+                maxWidth: '50%',
+                marginTop: '8px',
+              }}
+            >
               <small>{practicalExperience.description}</small>
             </div>
           </div>

@@ -194,6 +194,9 @@ hr {
   align-items: center;
   justify-content: space-between;
 }
+.practical-experience-container {
+  margin-bottom: 15px;
+}
 footer {
   font-size: 1rem;
   flex-direction: column;
