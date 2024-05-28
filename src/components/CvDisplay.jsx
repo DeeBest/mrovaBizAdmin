@@ -26,28 +26,37 @@ const CvDisplay = (props) => {
       <section className="educational-experience">
         <h3>Education</h3>
         <hr />
-        <div className="qualification-container">
-          <div className="qualification-details">
-            <h5 className="university-name">
-              {props.qualifications.universityName}
-            </h5>
-            <h5 className="qualification-name">
-              {props.qualifications.qualificationName}
-            </h5>
+        {props.educationExperiences.map((educationExperience) => (
+          <div key={educationExperience.id} className="qualification-container">
+            <div className="qualification-details">
+              <h5 className="university-name">
+                {educationExperience.universityName}
+              </h5>
+              <h5 className="qualification-name">
+                {educationExperience.qualification}
+              </h5>
+            </div>
+            <div className="qualification-details">
+              <span>{educationExperience.location}</span>
+              <span>{educationExperience.duration}</span>
+            </div>
           </div>
-          <div className="qualification-details">
-            <span>{props.qualifications.location}</span>
-            <span>{props.qualifications.duration}</span>
-          </div>
-        </div>
+        ))}
       </section>
       <section className="practical-experience">
         <h3>Practical Experience</h3>
         <hr />
-        <p>Simphiwe Dladla</p>
-        <p>simphiwedladla8@gmail.com</p>
-        <p>+27732434548</p>
-        <p>Mpumalanga, South Africa</p>
+        <div className="company&position qualification-details">
+          <h5>WebsBySimphiwe</h5>
+          <h5>Web Developer</h5>
+        </div>
+        <div className="location&duration qualification-details">
+          <span>Mpumalanga, South Africa</span>
+          <span>02/2024 - Present</span>
+        </div>
+        <div className="duties-description" style={{ marginTop: '5px' }}>
+          <small>Developing cool websites and web applications.</small>
+        </div>
       </section>
     </div>
   );

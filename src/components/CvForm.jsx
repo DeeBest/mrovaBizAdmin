@@ -3,23 +3,28 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { FaUserGraduate } from 'react-icons/fa';
 import { FaBriefcase } from 'react-icons/fa6';
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const CvForm = (props) => {
-  const [educationExperience, setEducationExperience] = useState({
-    universityName: '',
-    qualification: '',
-    duration: '',
-    location: '',
-  });
+  const [universityName, setUniversityName] = useState('');
+  const [qualification, setQualification] = useState('');
+  const [location, setLocation] = useState('');
+  const [duration, setDuration] = useState('');
 
-  const addQualification = () => {
-    props.setQualifications({
-      ...props.qualifications,
-      universityName: educationExperience.universityName,
-      qualificationName: educationExperience.qualification,
-      duration: educationExperience.duration,
-      location: educationExperience.location,
-    });
+  const handleAddExperience = () => {
+    const newExperience = {
+      id: uuidv4(),
+      universityName,
+      qualification,
+      location,
+      duration,
+    };
+
+    props.addEducationExperiences(newExperience);
+    setUniversityName('');
+    setQualification('');
+    setLocation('');
+    setDuration('');
   };
 
   return (
@@ -97,13 +102,8 @@ const CvForm = (props) => {
               name="universityName"
               id="universityName"
               placeholder="University name..."
-              value={educationExperience.universityName}
-              onChange={(e) =>
-                setEducationExperience({
-                  ...educationExperience,
-                  universityName: e.target.value,
-                })
-              }
+              value={universityName}
+              onChange={(e) => setUniversityName(e.target.value)}
             />
             <label htmlFor="qualification">Qualification:</label>
             <input
@@ -111,13 +111,8 @@ const CvForm = (props) => {
               name="qualification"
               id="qualification"
               placeholder="Qualification name..."
-              value={educationExperience.qualification}
-              onChange={(e) =>
-                setEducationExperience({
-                  ...educationExperience,
-                  qualification: e.target.value,
-                })
-              }
+              value={qualification}
+              onChange={(e) => setQualification(e.target.value)}
             />
             <label htmlFor="location">Location:</label>
             <input
@@ -125,13 +120,8 @@ const CvForm = (props) => {
               name="location"
               id="location"
               placeholder="Location..."
-              value={educationExperience.location}
-              onChange={(e) =>
-                setEducationExperience({
-                  ...educationExperience,
-                  location: e.target.value,
-                })
-              }
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
             />
             <label htmlFor="duration">Duration:</label>
             <input
@@ -139,15 +129,13 @@ const CvForm = (props) => {
               name="duration"
               id="duration"
               placeholder="Duration..."
-              value={educationExperience.duration}
-              onChange={(e) =>
-                setEducationExperience({
-                  ...educationExperience,
-                  duration: e.target.value,
-                })
-              }
+              value={duration}
+              onChange={(e) => setDuration(e.target.value)}
             />
-            <button onClick={addQualification} className="save-education-btn">
+            <button
+              onClick={handleAddExperience}
+              className="save-education-btn"
+            >
               Save
             </button>
           </form>

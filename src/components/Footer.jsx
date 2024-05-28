@@ -25,7 +25,7 @@ const Footer = () => {
           imgClass="contact-icon"
         />
       </div>
-      <p>Created By &copy;Simphiwe {currentYear}.</p>
+      <small>Created By &copy;Simphiwe {currentYear}.</small>
     </footer>
   );
 };

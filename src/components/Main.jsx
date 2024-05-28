@@ -1,6 +1,7 @@
 import CvDisplay from './CvDisplay';
 import CvForm from './CvForm';
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const Main = () => {
   const [personalDetails, setPersonalDetails] = useState({
@@ -10,24 +11,29 @@ const Main = () => {
     location: 'Mpumalanga, South Africa',
   });
 
-  const [qualifications, setQualifications] = useState({
-    universityName: 'The Odin Projects University',
-    qualificationName: 'Frontend Developer',
-    duration: '05/2022 - Present',
-    location: 'www.theodinproject.com',
-  });
+  const [educationExperiences, setEducationExperiences] = useState([
+    {
+      id: uuidv4(),
+      universityName: 'The Odin Project University',
+      qualification: 'Frontend Developer',
+      location: 'www.theodinproject.com',
+      duration: '02/2022 - 05/2024',
+    },
+  ]);
+
+  const addEducationExperiences = (experience) =>
+    setEducationExperiences([...educationExperiences, experience]);
 
   return (
     <main>
       <CvForm
         personalDetails={personalDetails}
         setPersonalDetails={setPersonalDetails}
-        qualifications={qualifications}
-        setQualifications={setQualifications}
+        addEducationExperiences={addEducationExperiences}
       />
       <CvDisplay
         personalDetails={personalDetails}
-        qualifications={qualifications}
+        educationExperiences={educationExperiences}
       />
     </main>
   );
