@@ -29,7 +29,7 @@ footer {
 }
 header,
 footer {
-  height: 15%;
+  height: 100px;
 }
 header {
   align-items: center;
@@ -58,7 +58,7 @@ main {
   align-items: flex-start;
   height: 100vh;
   z-index: 2;
-  padding: 15% 20px;
+  padding: 130px 20px;
 }
 .details-container {
   display: flex;
@@ -94,9 +94,13 @@ label {
   margin-left: 5px;
 }
 form {
+  display: none;
+  flex-direction: column;
   min-width: 100%;
+  max-width: 400px;
 }
-input {
+input,
+textarea {
   margin: 10px 0px;
   padding: 5px 10px;
   min-width: 100%;
@@ -107,10 +111,14 @@ input {
   border-bottom: 1px solid #6875ca;
   background-color: transparent;
 }
-input:focus {
+input:focus,
+textarea:focus {
   outline: 1.5px solid #0f0b36;
   border: none;
   border-radius: 10px;
+}
+textarea {
+  resize: none;
 }
 .save-education-btn {
   width: 40%;
@@ -136,10 +144,11 @@ input:focus {
   display: flex;
   flex-direction: column;
   width: 50%;
-  max-width: 700px;
+  max-width: 800px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
   padding: 0px 20px 20px 20px;
   background-color: white;
+  min-height: 650px;
 }
 .cv-display section {
   min-width: 100%;
@@ -229,7 +238,7 @@ footer .contact-icons {
   display: flex;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 780px) {
   main {
     flex-direction: column;
   }

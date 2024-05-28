@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import { IoIosArrowDown } from 'react-icons/io';
+import { IoAddCircle } from 'react-icons/io5';
 import { IoPerson } from 'react-icons/io5';
 
 const PersonalDetails = (props) => {
@@ -9,7 +9,13 @@ const PersonalDetails = (props) => {
       <div className="personal-heading-container section-heading-container">
         <IoPerson />
         <h3>Personal Information</h3>
-        <IoIosArrowDown />
+        <IoAddCircle
+          onClick={() => {
+            document
+              .querySelector('.personal-details-form')
+              .classList.toggle('active');
+          }}
+        />
       </div>
       <div className="form-container">
         <form

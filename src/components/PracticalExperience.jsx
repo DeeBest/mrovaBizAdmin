@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { IoIosArrowDown } from 'react-icons/io';
+import { IoAddCircle } from 'react-icons/io5';
 import { FaBriefcase } from 'react-icons/fa6';
 
 const PracticalExperience = (props) => {
@@ -8,7 +8,13 @@ const PracticalExperience = (props) => {
       <div className="practical-heading-container section-heading-container">
         <FaBriefcase />
         <h3>Practical Experience</h3>
-        <IoIosArrowDown />
+        <IoAddCircle
+          onClick={() => {
+            document
+              .querySelector('.practicalExperience-form')
+              .classList.toggle('active');
+          }}
+        />
       </div>
       <div className="form-container">
         <form
@@ -72,11 +78,12 @@ const PracticalExperience = (props) => {
             }
           />
           <label htmlFor="description">Duties Description:</label>
-          <input
-            type="textarea"
+          <textarea
             name="description"
             id="description"
             placeholder="Duties Description..."
+            rows="4"
+            cols="33"
             value={props.experienceDetails.description}
             onChange={(e) =>
               props.setExperienceDetails({

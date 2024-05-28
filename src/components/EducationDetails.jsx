@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { FaUserGraduate } from 'react-icons/fa';
-import { IoIosArrowDown } from 'react-icons/io';
+import { IoAddCircle } from 'react-icons/io5';
 
 const EducationDetails = (props) => {
   return (
@@ -9,7 +9,13 @@ const EducationDetails = (props) => {
       <div className="education-header-container section-heading-container">
         <FaUserGraduate />
         <h3>Education</h3>
-        <IoIosArrowDown />
+        <IoAddCircle
+          onClick={() => {
+            document
+              .querySelector('.educationDetails-form')
+              .classList.toggle('active');
+          }}
+        />
       </div>
       <div className="form-container">
         <form
