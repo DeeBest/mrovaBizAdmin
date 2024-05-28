@@ -53,8 +53,8 @@ const CvDisplay = (props) => {
               <h5>{practicalExperience.position}</h5>
             </div>
             <div className="location&duration qualification-details">
-              <span>{practicalExperience.location}</span>
-              <span>{practicalExperience.duration}</span>
+              <span>{practicalExperience.companyLocation}</span>
+              <span>{practicalExperience.durationAtCompany}</span>
             </div>
             <div className="duties-description" style={{ marginTop: '5px' }}>
               <small>{practicalExperience.description}</small>

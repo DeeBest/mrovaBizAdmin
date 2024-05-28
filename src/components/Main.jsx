@@ -21,20 +21,20 @@ const Main = () => {
     },
   ]);
 
-  const addEducationExperiences = (experience) =>
-    setEducationExperiences([...educationExperiences, experience]);
-
   const [practicalExperiences, setPracticalExperiences] = useState([
     {
       id: uuidv4(),
       companyName: 'WebsBySimphiwe',
       position: 'Frontend Developer',
-      location: 'Mpumalanga, South Africa',
-      duration: '06/2023 - Present',
+      companyLocation: 'Mpumalanga, South Africa',
+      durationAtCompany: '06/2023 - Present',
       description:
         'Developing, building and maintaining cool websites and web applications.',
     },
   ]);
+
+  const addEducationExperiences = (experience) =>
+    setEducationExperiences([...educationExperiences, experience]);
 
   const addPracticalExperiences = (experience) =>
     setPracticalExperiences([...practicalExperiences, experience]);

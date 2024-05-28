@@ -11,6 +11,12 @@ const CvForm = (props) => {
   const [location, setLocation] = useState('');
   const [duration, setDuration] = useState('');
 
+  const [companyName, setCompanyName] = useState('');
+  const [position, setPosition] = useState('');
+  const [companyLocation, setCompanyLocation] = useState('');
+  const [durationAtCompany, setDurationAtCompany] = useState('');
+  const [description, setDescription] = useState('');
+
   const handleAddExperience = () => {
     const newExperience = {
       id: uuidv4(),
@@ -25,6 +31,25 @@ const CvForm = (props) => {
     setQualification('');
     setLocation('');
     setDuration('');
+  };
+
+  const handleAddPracticalExperience = () => {
+    const newPracticalExperience = {
+      id: uuidv4(),
+      companyName,
+      position,
+      companyLocation,
+      durationAtCompany,
+      description,
+    };
+
+    props.addPracticalExperiences(newPracticalExperience);
+
+    setCompanyName('');
+    setPosition('');
+    setCompanyLocation('');
+    setDurationAtCompany('');
+    setDescription('');
   };
 
   return (
