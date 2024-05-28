@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
+
 import { FaUserGraduate } from 'react-icons/fa';
 import { IoIosArrowDown } from 'react-icons/io';
 
-const EducationDetails = () => {
+const EducationDetails = (props) => {
   return (
     <section className="education-section">
       <div className="education-header-container section-heading-container">
@@ -20,8 +22,13 @@ const EducationDetails = () => {
             name="universityName"
             id="universityName"
             placeholder="University name..."
-            // value={universityName}
-            // onChange={(e) => setUniversityName(e.target.value)}
+            value={props.educationDetails.universityName}
+            onChange={(e) =>
+              props.setEducationDetails({
+                ...props.educationDetails,
+                universityName: e.target.value,
+              })
+            }
           />
           <label htmlFor="qualification">Qualification:</label>
           <input
@@ -29,8 +36,13 @@ const EducationDetails = () => {
             name="qualification"
             id="qualification"
             placeholder="Qualification name..."
-            // value={qualification}
-            // onChange={(e) => setQualification(e.target.value)}
+            value={props.educationDetails.qualification}
+            onChange={(e) =>
+              props.setEducationDetails({
+                ...props.educationDetails,
+                qualification: e.target.value,
+              })
+            }
           />
           <label htmlFor="location">Location:</label>
           <input
@@ -38,8 +50,13 @@ const EducationDetails = () => {
             name="location"
             id="location"
             placeholder="Location..."
-            value={location}
-            // onChange={(e) => setLocation(e.target.value)}
+            value={props.educationDetails.location}
+            onChange={(e) =>
+              props.setEducationDetails({
+                ...props.educationDetails,
+                location: e.target.value,
+              })
+            }
           />
           <label htmlFor="duration">Duration:</label>
           <input
@@ -47,11 +64,16 @@ const EducationDetails = () => {
             name="duration"
             id="duration"
             placeholder="Duration..."
-            // value={duration}
-            // onChange={(e) => setDuration(e.target.value)}
+            value={props.educationDetails.duration}
+            onChange={(e) =>
+              props.setEducationDetails({
+                ...props.educationDetails,
+                duration: e.target.value,
+              })
+            }
           />
           <button
-            // onClick={handleAddExperience}
+            onClick={props.handleAddExperience}
             className="save-education-btn"
           >
             Save

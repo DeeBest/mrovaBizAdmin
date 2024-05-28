@@ -8,54 +8,59 @@ import EducationDetails from './EducationDetails';
 import PracticalExperience from './PracticalExperience';
 
 const CvForm = (props) => {
-  const [universityName, setUniversityName] = useState('');
-  const [qualification, setQualification] = useState('');
-  const [location, setLocation] = useState('');
-  const [duration, setDuration] = useState('');
+  const [educationDetails, setEducationDetails] = useState({
+    universityName: '',
+    qualification: '',
+    location: '',
+    duration: '',
+  });
 
-  const [companyName, setCompanyName] = useState('');
-  const [position, setPosition] = useState('');
-  const [companyLocation, setCompanyLocation] = useState('');
-  const [durationAtCompany, setDurationAtCompany] = useState('');
-  const [description, setDescription] = useState('');
+  const [experienceDetails, setExperienceDetails] = useState({
+    companyName: '',
+    position: '',
+    companyLocation: '',
+    durationAtCompany: '',
+    description: '',
+  });
 
   const handleAddExperience = () => {
     const newExperience = {
       id: uuidv4(),
-      universityName,
-      qualification,
-      location,
-      duration,
+      universityName: educationDetails.universityName,
+      qualification: educationDetails.qualification,
+      location: educationDetails.location,
+      duration: educationDetails.duration,
     };
 
     props.addEducationExperiences(newExperience);
-    setUniversityName('');
-    setQualification('');
-    setLocation('');
-    setDuration('');
+
+    setEducationDetails({
+      universityName: '',
+      qualification: '',
+      location: '',
+      duration: '',
+    });
   };
 
   const handleAddPracticalExperience = () => {
     const newPracticalExperience = {
       id: uuidv4(),
-      companyName,
-      position,
-      companyLocation,
-      durationAtCompany,
-      description,
+      companyName: experienceDetails.companyName,
+      position: experienceDetails.position,
+      companyLocation: experienceDetails.companyLocation,
+      durationAtCompany: experienceDetails.durationAtCompany,
+      description: experienceDetails.description,
     };
 
     props.addPracticalExperiences(newPracticalExperience);
 
-    setCompanyName('');
-    setPosition('');
-    setCompanyLocation('');
-    setDurationAtCompany('');
-    setDescription('');
-  };
-
-  const toggleActiveClass = () => {
-    document.querySelector('.add-experience-body').classList.toggle('active');
+    setExperienceDetails({
+      companyName: '',
+      position: '',
+      companyLocation: '',
+      durationAtCompany: '',
+      description: '',
+    });
   };
 
   return (
@@ -64,9 +69,17 @@ const CvForm = (props) => {
         setPersonalDetails={props.setPersonalDetails}
         personalDetails={props.personalDetails}
       />
-      <EducationDetails />
+      <EducationDetails
+        educationDetails={educationDetails}
+        setEducationDetails={setEducationDetails}
+        handleAddExperience={handleAddExperience}
+      />
       <QualificationLists educationExperiences={props.educationExperiences} />
-      <PracticalExperience />
+      <PracticalExperience
+        experienceDetails={experienceDetails}
+        setExperienceDetails={setExperienceDetails}
+        handleAddPracticalExperience={handleAddPracticalExperience}
+      />
       <PracticalExperienceLists
         practicalExperiences={props.practicalExperiences}
       />

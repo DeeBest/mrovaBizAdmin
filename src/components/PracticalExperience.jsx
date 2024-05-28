@@ -2,7 +2,7 @@
 import { IoIosArrowDown } from 'react-icons/io';
 import { FaBriefcase } from 'react-icons/fa6';
 
-const PracticalExperience = () => {
+const PracticalExperience = (props) => {
   return (
     <section className="practical-experience-section">
       <div className="practical-heading-container section-heading-container">
@@ -21,8 +21,13 @@ const PracticalExperience = () => {
             name="companyName"
             id="companyName"
             placeholder="Company name..."
-            // value={companyName}
-            // onChange={(e) => setCompanyName(e.target.value)}
+            value={props.experienceDetails.companyName}
+            onChange={(e) =>
+              props.setExperienceDetails({
+                ...props.experienceDetails,
+                companyName: e.target.value,
+              })
+            }
           />
           <label htmlFor="position">Position:</label>
           <input
@@ -30,8 +35,13 @@ const PracticalExperience = () => {
             name="position"
             id="position"
             placeholder="Position..."
-            // value={position}
-            // onChange={(e) => setPosition(e.target.value)}
+            value={props.experienceDetails.position}
+            onChange={(e) =>
+              props.setExperienceDetails({
+                ...props.experienceDetails,
+                position: e.target.value,
+              })
+            }
           />
           <label htmlFor="companyLocation">Company Location:</label>
           <input
@@ -39,8 +49,13 @@ const PracticalExperience = () => {
             name="companyLocation"
             id="companyLocation"
             placeholder="Company Location..."
-            // value={companyLocation}
-            // onChange={(e) => setCompanyLocation(e.target.value)}
+            value={props.experienceDetails.companyLocation}
+            onChange={(e) =>
+              props.setExperienceDetails({
+                ...props.experienceDetails,
+                companyLocation: e.target.value,
+              })
+            }
           />
           <label htmlFor="durationAtCompany">Duration At Company:</label>
           <input
@@ -48,8 +63,13 @@ const PracticalExperience = () => {
             name="durationAtCompany"
             id="durationAtCompany"
             placeholder="Duration At Company..."
-            // value={durationAtCompany}
-            // onChange={(e) => setDurationAtCompany(e.target.value)}
+            value={props.experienceDetails.durationAtCompany}
+            onChange={(e) =>
+              props.setExperienceDetails({
+                ...props.experienceDetails,
+                durationAtCompany: e.target.value,
+              })
+            }
           />
           <label htmlFor="description">Duties Description:</label>
           <input
@@ -57,11 +77,16 @@ const PracticalExperience = () => {
             name="description"
             id="description"
             placeholder="Duties Description..."
-            // value={description}
-            // onChange={(e) => setDescription(e.target.value)}
+            value={props.experienceDetails.description}
+            onChange={(e) =>
+              props.setExperienceDetails({
+                ...props.experienceDetails,
+                description: e.target.value,
+              })
+            }
           />
           <button
-            // onClick={handleAddPracticalExperience}
+            onClick={props.handleAddPracticalExperience}
             className="save-education-btn"
           >
             Save
