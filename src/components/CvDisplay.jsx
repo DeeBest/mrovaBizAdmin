@@ -46,17 +46,21 @@ const CvDisplay = (props) => {
       <section className="practical-experience">
         <h3>Practical Experience</h3>
         <hr />
-        <div className="company&position qualification-details">
-          <h5>WebsBySimphiwe</h5>
-          <h5>Web Developer</h5>
-        </div>
-        <div className="location&duration qualification-details">
-          <span>Mpumalanga, South Africa</span>
-          <span>02/2024 - Present</span>
-        </div>
-        <div className="duties-description" style={{ marginTop: '5px' }}>
-          <small>Developing cool websites and web applications.</small>
-        </div>
+        {props.practicalExperiences.map((practicalExperience) => (
+          <div key={practicalExperience.id}>
+            <div className="company&position qualification-details">
+              <h5>{practicalExperience.companyName}</h5>
+              <h5>{practicalExperience.position}</h5>
+            </div>
+            <div className="location&duration qualification-details">
+              <span>{practicalExperience.location}</span>
+              <span>{practicalExperience.duration}</span>
+            </div>
+            <div className="duties-description" style={{ marginTop: '5px' }}>
+              <small>{practicalExperience.description}</small>
+            </div>
+          </div>
+        ))}
       </section>
     </div>
   );
