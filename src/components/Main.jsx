@@ -46,6 +46,8 @@ const Main = () => {
         setPersonalDetails={setPersonalDetails}
         addEducationExperiences={addEducationExperiences}
         addPracticalExperiences={addPracticalExperiences}
+        educationExperiences={educationExperiences}
+        practicalExperiences={practicalExperiences}
       />
       <CvDisplay
         personalDetails={personalDetails}
