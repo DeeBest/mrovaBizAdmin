@@ -19,6 +19,20 @@ const Main = () => {
       location: 'www.theodinproject.com',
       duration: '02/2022 - 05/2024',
     },
+    {
+      id: uuidv4(),
+      universityName: 'University Of Pretoria',
+      qualification: 'Bachelor Of Business Administration',
+      location: 'Pretoria, South Africa',
+      duration: '02/2014 - 05/2018',
+    },
+    {
+      id: uuidv4(),
+      universityName: 'Youtube University',
+      qualification: 'Forex Trader',
+      location: 'www.youtube.com',
+      duration: '02/2018 - Present',
+    },
   ]);
 
   const [practicalExperiences, setPracticalExperiences] = useState([
@@ -39,6 +53,13 @@ const Main = () => {
   const addPracticalExperiences = (experience) =>
     setPracticalExperiences([...practicalExperiences, experience]);
 
+  const deleteQualification = (id) => {
+    const newList = educationExperiences.filter(
+      (experience) => experience.id !== id
+    );
+    console.log(newList);
+  };
+
   return (
     <main>
       <CvForm
@@ -48,6 +69,7 @@ const Main = () => {
         addPracticalExperiences={addPracticalExperiences}
         educationExperiences={educationExperiences}
         practicalExperiences={practicalExperiences}
+        deleteQualification={deleteQualification}
       />
       <CvDisplay
         personalDetails={personalDetails}

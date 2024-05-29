@@ -7,8 +7,9 @@ const PracticalExperience = (props) => {
     <section className="practical-experience-section">
       <div className="practical-heading-container section-heading-container">
         <FaBriefcase />
-        <h3>Practical Experience</h3>
+        <h3>Experience</h3>
         <IoAddCircle
+          className="display-form-icon icon"
           onClick={() => {
             document
               .querySelector('.practicalExperience-form')

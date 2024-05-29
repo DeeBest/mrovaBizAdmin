@@ -4,11 +4,15 @@ import { RiDeleteBinFill } from 'react-icons/ri';
 
 const QualificationLists = (props) => {
   return (
-    <ul>
+    <>
       {props.educationExperiences.map((educationExperience) => (
-        <div key={educationExperience.id}>
+        <div className="qualifications-list" key={educationExperience.id}>
           <h5>
-            <RiDeleteBinFill /> {educationExperience.universityName} <FaCog />
+            <RiDeleteBinFill
+              className="icon delete-icon"
+              onClick={() => props.deleteQualification(educationExperience.id)}
+            />{' '}
+            {educationExperience.universityName} <FaCog className="icon" />
           </h5>
           <form onSubmit={(e) => e.preventDefault()}>
             {/* <input type="text" value={practicalExperience.companyName} /> */}
@@ -19,7 +23,7 @@ const QualificationLists = (props) => {
           </form>
         </div>
       ))}
-    </ul>
+    </>
   );
 };
 

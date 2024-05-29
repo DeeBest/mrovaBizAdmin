@@ -8,8 +8,9 @@ const PersonalDetails = (props) => {
     <section className="personal-section">
       <div className="personal-heading-container section-heading-container">
         <IoPerson />
-        <h3>Personal Information</h3>
+        <h3>Personal</h3>
         <IoAddCircle
+          className="display-form-icon icon"
           onClick={() => {
             document
               .querySelector('.personal-details-form')

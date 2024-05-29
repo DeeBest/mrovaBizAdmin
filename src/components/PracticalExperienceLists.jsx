@@ -6,9 +6,10 @@ const PracticalExperienceLists = (props) => {
   return (
     <>
       {props.practicalExperiences.map((practicalExperience) => (
-        <div key={practicalExperience.id}>
+        <div className="experiences-list" key={practicalExperience.id}>
           <h5>
-            <RiDeleteBinFill /> {practicalExperience.companyName} <FaCog />
+            <RiDeleteBinFill className="delete-icon icon" />{' '}
+            {practicalExperience.companyName} <FaCog className="icon" />
           </h5>
           <form onSubmit={(e) => e.preventDefault()}>
             {/* <input type="text" value={practicalExperience.companyName} /> */}

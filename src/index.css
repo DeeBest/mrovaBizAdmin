@@ -13,6 +13,9 @@ body {
   color: #0f0b36;
   overflow-x: hidden;
 }
+html {
+  font-size: 1.4rem;
+}
 #root {
   min-width: 100vw;
   min-height: 100vh;
@@ -98,6 +101,9 @@ form {
   flex-direction: column;
   min-width: 100%;
   max-width: 400px;
+  border-bottom: 2px solid #0f0b36;
+  border-radius: 10px;
+  padding: 15px;
 }
 input,
 textarea {
@@ -121,9 +127,10 @@ textarea {
   resize: none;
 }
 .save-education-btn {
+  align-self: center;
   width: 40%;
   padding: 5px 10px;
-  background-color: #71d149;
+  background-color: #85d363;
   border: none;
   outline: none;
   border-radius: 10px;
@@ -197,6 +204,34 @@ section hr {
 }
 .practical-experience-container {
   margin-bottom: 15px;
+}
+.experiences-list,
+.qualifications-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 20px;
+  margin-top: 10px;
+}
+.experiences-list h5,
+.qualifications-list h5 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.icon {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+.icon:hover {
+  opacity: 0.8;
+  scale: 0.98;
+}
+.delete-icon {
+  color: tomato;
+}
+.display-form-icon {
+  font-size: 2rem;
+  color: #1a4e03;
 }
 footer {
   font-size: 1rem;

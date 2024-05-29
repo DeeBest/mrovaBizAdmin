@@ -10,6 +10,7 @@ const EducationDetails = (props) => {
         <FaUserGraduate />
         <h3>Education</h3>
         <IoAddCircle
+          className="display-form-icon icon"
           onClick={() => {
             document
               .querySelector('.educationDetails-form')

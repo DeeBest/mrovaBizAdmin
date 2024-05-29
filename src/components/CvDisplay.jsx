@@ -7,7 +7,7 @@ const CvDisplay = (props) => {
   return (
     <div className="cv-display">
       <section className="personal-details">
-        <h3>Personal Details</h3>
+        <h3>Personal</h3>
         <hr />
         <h2>{props.personalDetails.name}</h2>
         <div>
@@ -44,7 +44,7 @@ const CvDisplay = (props) => {
         ))}
       </section>
       <section className="practical-experience">
-        <h3>Practical Experience</h3>
+        <h3>Experience</h3>
         <hr />
         {props.practicalExperiences.map((practicalExperience) => (
           <div

@@ -74,7 +74,10 @@ const CvForm = (props) => {
         setEducationDetails={setEducationDetails}
         handleAddExperience={handleAddExperience}
       />
-      <QualificationLists educationExperiences={props.educationExperiences} />
+      <QualificationLists
+        educationExperiences={props.educationExperiences}
+        deleteQualification={props.deleteQualification}
+      />
       <PracticalExperience
         experienceDetails={experienceDetails}
         setExperienceDetails={setExperienceDetails}
