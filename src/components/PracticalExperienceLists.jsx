@@ -8,7 +8,12 @@ const PracticalExperienceLists = (props) => {
       {props.practicalExperiences.map((practicalExperience) => (
         <div className="experiences-list" key={practicalExperience.id}>
           <h5>
-            <RiDeleteBinFill className="delete-icon icon" />{' '}
+            <RiDeleteBinFill
+              className="delete-icon icon"
+              onClick={() =>
+                props.deletePracticalExperience(practicalExperience.id)
+              }
+            />{' '}
             {practicalExperience.companyName} <FaCog className="icon" />
           </h5>
           <form onSubmit={(e) => e.preventDefault()}>

@@ -76,7 +76,7 @@ const CvForm = (props) => {
       />
       <QualificationLists
         educationExperiences={props.educationExperiences}
-        deleteQualification={props.deleteQualification}
+        deleteEducationExperience={props.deleteEducationExperience}
       />
       <PracticalExperience
         experienceDetails={experienceDetails}
@@ -85,6 +85,7 @@ const CvForm = (props) => {
       />
       <PracticalExperienceLists
         practicalExperiences={props.practicalExperiences}
+        deletePracticalExperience={props.deletePracticalExperience}
       />
     </div>
   );

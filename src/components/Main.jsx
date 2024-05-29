@@ -53,11 +53,18 @@ const Main = () => {
   const addPracticalExperiences = (experience) =>
     setPracticalExperiences([...practicalExperiences, experience]);
 
-  const deleteQualification = (id) => {
+  const deleteEducationExperience = (id) => {
     const newList = educationExperiences.filter(
       (experience) => experience.id !== id
     );
-    console.log(newList);
+    setEducationExperiences(newList);
+  };
+
+  const deletePracticalExperience = (id) => {
+    const newList = practicalExperiences.filter(
+      (experience) => experience.id !== id
+    );
+    setPracticalExperiences(newList);
   };
 
   return (
@@ -69,7 +76,8 @@ const Main = () => {
         addPracticalExperiences={addPracticalExperiences}
         educationExperiences={educationExperiences}
         practicalExperiences={practicalExperiences}
-        deleteQualification={deleteQualification}
+        deleteEducationExperience={deleteEducationExperience}
+        deletePracticalExperience={deletePracticalExperience}
       />
       <CvDisplay
         personalDetails={personalDetails}

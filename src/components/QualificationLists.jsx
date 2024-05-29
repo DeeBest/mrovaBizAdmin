@@ -10,7 +10,9 @@ const QualificationLists = (props) => {
           <h5>
             <RiDeleteBinFill
               className="icon delete-icon"
-              onClick={() => props.deleteQualification(educationExperience.id)}
+              onClick={() =>
+                props.deleteEducationExperience(educationExperience.id)
+              }
             />{' '}
             {educationExperience.universityName} <FaCog className="icon" />
           </h5>
