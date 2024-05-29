@@ -14,14 +14,45 @@ const QualificationLists = (props) => {
                 props.deleteEducationExperience(educationExperience.id)
               }
             />{' '}
-            {educationExperience.universityName} <FaCog className="icon" />
+            {educationExperience.universityName}{' '}
+            <FaCog
+              onClick={() => props.EditQualification(educationExperience.id)}
+              className="icon"
+            />
           </h5>
-          <form onSubmit={(e) => e.preventDefault()}>
-            {/* <input type="text" value={practicalExperience.companyName} /> */}
-            {/* <input type="text" value={practicalExperience.position} />
-            <input type="text" value={practicalExperience.durationAtCompany} />
-            <input type="text" value={practicalExperience.companyLocation} />
-            <input type="textarea" value={practicalExperience.description} /> */}
+          <form
+            className="edit-qualification-form active"
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <input
+              type="text"
+              value={educationExperience.universityName}
+              onChange={(e) => {
+                console.log(e.value);
+              }}
+            />
+            <input
+              type="text"
+              value={educationExperience.qualification}
+              onChange={(e) => {
+                console.log(e.target.value);
+              }}
+            />
+            <input
+              type="text"
+              value={educationExperience.location}
+              onChange={(e) => {
+                console.log(e.target.value);
+              }}
+            />
+            <input
+              type="text"
+              value={educationExperience.duration}
+              onChange={(e) => {
+                console.log(e.target.value);
+              }}
+            />
+            <button className="update-qualification-btn">Update</button>
           </form>
         </div>
       ))}

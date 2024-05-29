@@ -45,6 +45,23 @@ const Main = () => {
       description:
         'Developing, building and maintaining cool websites and web applications.',
     },
+    {
+      id: uuidv4(),
+      companyName: 'Freelance',
+      position: 'Websites Developer',
+      companyLocation: 'www.freelance.com',
+      durationAtCompany: '02/2023 - Present',
+      description: 'Freelancing to clients seeking websites or web apps.',
+    },
+    {
+      id: uuidv4(),
+      companyName: 'Forex Markets',
+      position: 'Trader',
+      companyLocation: 'Metatrader',
+      durationAtCompany: '06/2018 - Present',
+      description:
+        'Trading stocks, trading foreign exchange currencies and volatility indexes.',
+    },
   ]);
 
   const addEducationExperiences = (experience) =>
@@ -67,6 +84,10 @@ const Main = () => {
     setPracticalExperiences(newList);
   };
 
+  const EditQualification = (id) => {
+    console.log(id);
+  };
+
   return (
     <main>
       <CvForm
@@ -78,6 +99,8 @@ const Main = () => {
         practicalExperiences={practicalExperiences}
         deleteEducationExperience={deleteEducationExperience}
         deletePracticalExperience={deletePracticalExperience}
+        setEducationExperiences={setEducationExperiences}
+        EditQualification={EditQualification}
       />
       <CvDisplay
         personalDetails={personalDetails}

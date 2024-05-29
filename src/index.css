@@ -126,7 +126,8 @@ textarea:focus {
 textarea {
   resize: none;
 }
-.save-education-btn {
+.save-education-btn,
+.update-qualification-btn {
   align-self: center;
   width: 40%;
   padding: 5px 10px;
@@ -134,15 +135,16 @@ textarea {
   border: none;
   outline: none;
   border-radius: 10px;
-  font-size: 1.3rem;
-  font-weight: 550;
+  font-size: 1rem;
+  font-weight: 400;
   color: #cbfef3;
   cursor: pointer;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
   transition: transform 500ms ease-in-out, opacity 500ms ease-in-out,
     box-shadow 500ms ease-in-out;
 }
-.save-education-btn:hover {
+.save-education-btn:hover,
+.update-qualification-btn:hover {
   transform: scale(0.99);
   opacity: 0.9;
   box-shadow: none;
