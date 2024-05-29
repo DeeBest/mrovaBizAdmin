@@ -127,7 +127,8 @@ textarea {
   resize: none;
 }
 .save-education-btn,
-.update-qualification-btn {
+.update-qualification-btn,
+.update-experience-btn {
   align-self: center;
   width: 40%;
   padding: 5px 10px;
@@ -144,7 +145,8 @@ textarea {
     box-shadow 500ms ease-in-out;
 }
 .save-education-btn:hover,
-.update-qualification-btn:hover {
+.update-qualification-btn:hover,
+.update-experience-btn:hover {
   transform: scale(0.99);
   opacity: 0.9;
   box-shadow: none;

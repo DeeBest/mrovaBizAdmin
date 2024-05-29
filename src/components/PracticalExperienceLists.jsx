@@ -16,12 +16,13 @@ const PracticalExperienceLists = (props) => {
             />{' '}
             {practicalExperience.companyName} <FaCog className="icon" />
           </h5>
-          <form onSubmit={(e) => e.preventDefault()}>
-            {/* <input type="text" value={practicalExperience.companyName} /> */}
-            {/* <input type="text" value={practicalExperience.position} />
+          <form className="active" onSubmit={(e) => e.preventDefault()}>
+            <input type="text" value={practicalExperience.companyName} />
+            <input type="text" value={practicalExperience.position} />
             <input type="text" value={practicalExperience.durationAtCompany} />
             <input type="text" value={practicalExperience.companyLocation} />
-            <input type="textarea" value={practicalExperience.description} /> */}
+            <textarea value={practicalExperience.description} />
+            <button className="update-experience-btn">Update</button>
           </form>
         </div>
       ))}
