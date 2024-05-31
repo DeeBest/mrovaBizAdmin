@@ -129,7 +129,8 @@ textarea {
 }
 .save-education-btn,
 .update-details-btn,
-.update-experience-btn {
+.update-experience-btn,
+.download-cv-btn {
   align-self: center;
   width: 40%;
   padding: 5px 10px;
@@ -145,12 +146,17 @@ textarea {
   transition: transform 500ms ease-in-out, opacity 500ms ease-in-out,
     box-shadow 500ms ease-in-out;
 }
+.download-cv-btn:hover,
 .save-education-btn:hover,
 .update-details-btn:hover,
 .update-experience-btn:hover {
   transform: scale(0.99);
   opacity: 0.9;
   box-shadow: none;
+}
+.download-cv-btn {
+  width: 10%;
+  align-self: flex-start;
 }
 .cv-display {
   display: flex;
@@ -292,7 +298,7 @@ footer .contact-icons {
   display: flex;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1000px) {
   main {
     flex-direction: column;
   }
@@ -305,6 +311,10 @@ footer .contact-icons {
   }
   .details-container input {
     min-width: 100%;
+  }
+  .download-cv-btn {
+    width: 50%;
+    align-self: center;
   }
 }
 @media screen and (max-width: 650px) {
@@ -320,6 +330,9 @@ footer .contact-icons {
   }
   .section-details {
     width: 100%;
+  }
+  .download-cv-btn {
+    width: 80%;
   }
 }
 @media screen and (max-width: 320px) {

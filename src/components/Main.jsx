@@ -1,7 +1,9 @@
-import CvDisplay from './CvDisplay';
-import CvForm from './CvForm';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
+import CvDisplay from './CvDisplay';
+import CvForm from './CvForm';
 
 const Main = () => {
   const [personalDetails, setPersonalDetails] = useState({
@@ -84,6 +86,18 @@ const Main = () => {
     setPracticalExperiences(newList);
   };
 
+  const downloadPDF = () => {
+    const input = document.querySelector('.cv-display');
+    html2canvas(input)
+      .then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF();
+        pdf.addImage(imgData, 'PNG', 0, 0);
+        pdf.save('cv.pdf');
+      })
+      .catch((err) => console.error('Failed to generate PDF', err));
+  };
+
   return (
     <main>
       <CvForm
@@ -103,6 +117,9 @@ const Main = () => {
         educationExperiences={educationExperiences}
         practicalExperiences={practicalExperiences}
       />
+      <button className="download-cv-btn" onClick={downloadPDF}>
+        Download CV as PDF
+      </button>
     </main>
   );
 };
