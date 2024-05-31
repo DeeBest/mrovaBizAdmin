@@ -7,9 +7,9 @@ import CvForm from './CvForm';
 
 const Main = () => {
   const [personalDetails, setPersonalDetails] = useState({
-    name: 'Simphiwe Dladla',
-    email: 'simphiwedladla8@gmail.com',
-    phoneNumber: '+27732434548',
+    name: 'Example User',
+    email: 'exampleuser@gmail.com',
+    phoneNumber: '+27748750912',
     location: 'Mpumalanga, South Africa',
   });
 
@@ -20,13 +20,6 @@ const Main = () => {
       qualification: 'Frontend Developer',
       location: 'www.theodinproject.com',
       duration: '02/2022 - 05/2024',
-    },
-    {
-      id: uuidv4(),
-      universityName: 'University Of Pretoria',
-      qualification: 'Bachelor Of Business Administration',
-      location: 'Pretoria, South Africa',
-      duration: '02/2014 - 05/2018',
     },
     {
       id: uuidv4(),
