@@ -14,7 +14,7 @@ body {
   overflow-x: hidden;
 }
 html {
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 #root {
   min-width: 100vw;
@@ -176,6 +176,7 @@ h2 {
 .personal-details-icons,
 span {
   font-size: 0.9rem;
+  line-height: 1.6;
 }
 .educational-experience h3 {
   align-self: center;
@@ -201,13 +202,26 @@ section hr {
 .qualification-container {
   margin-bottom: 15px;
 }
-.qualification-details {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 .practical-experience-container {
   margin-bottom: 15px;
+}
+.divider {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+.section-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 50%;
+  overflow-wrap: break-word;
+  overflow: hidden;
+}
+.duties-description {
+  min-width: 100%;
+  margin-top: 6.5px;
 }
 .experiences-list,
 .qualifications-list {
@@ -277,7 +291,7 @@ footer .contact-icons {
   display: flex;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 960px) {
   main {
     flex-direction: column;
   }
@@ -292,19 +306,19 @@ footer .contact-icons {
     min-width: 100%;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 650px) {
   .cv-display section {
     min-width: 100%;
   }
   .details-container {
     min-width: 100%;
   }
-  .qualification-details {
+  .divider {
     align-items: flex-start;
     flex-direction: column;
   }
-  .duties-description {
-    min-width: 100%;
+  .section-details {
+    width: 100%;
   }
 }
 @media screen and (max-width: 320px) {

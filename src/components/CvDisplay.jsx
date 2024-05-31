@@ -28,17 +28,19 @@ const CvDisplay = (props) => {
         <hr />
         {props.educationExperiences.map((educationExperience) => (
           <div key={educationExperience.id} className="qualification-container">
-            <div className="qualification-details">
-              <h5 className="university-name">
-                {educationExperience.universityName}
-              </h5>
-              <h5 className="qualification-name">
-                {educationExperience.qualification}
-              </h5>
-            </div>
-            <div className="qualification-details">
-              <span>{educationExperience.location}</span>
-              <span>{educationExperience.duration}</span>
+            <div className="divider">
+              <div className="section-details">
+                <h5 className="university-name">
+                  {educationExperience.universityName}
+                </h5>
+                <span>{educationExperience.location}</span>
+              </div>
+              <div className="section-details">
+                <h5 className="qualification-name">
+                  {educationExperience.qualification}
+                </h5>
+                <span>{educationExperience.duration}</span>
+              </div>
             </div>
           </div>
         ))}
@@ -51,21 +53,17 @@ const CvDisplay = (props) => {
             className="practical-experience-container"
             key={practicalExperience.id}
           >
-            <div className="company&position qualification-details">
-              <h5>{practicalExperience.companyName}</h5>
-              <h5>{practicalExperience.position}</h5>
+            <div className="divider">
+              <div className="section-details">
+                <h5>{practicalExperience.companyName}</h5>
+                <span>{practicalExperience.companyLocation}</span>
+              </div>
+              <div className="section-details">
+                <h5>{practicalExperience.position}</h5>
+                <span>{practicalExperience.durationAtCompany}</span>
+              </div>
             </div>
-            <div className="location&duration qualification-details">
-              <span>{practicalExperience.companyLocation}</span>
-              <span>{practicalExperience.durationAtCompany}</span>
-            </div>
-            <div
-              className="duties-description"
-              style={{
-                maxWidth: '50%',
-                marginTop: '8px',
-              }}
-            >
+            <div className="duties-description">
               <small>{practicalExperience.description}</small>
             </div>
           </div>

@@ -1,8 +1,22 @@
 /* eslint-disable react/prop-types */
 import { FaCog } from 'react-icons/fa';
 import { RiDeleteBinFill } from 'react-icons/ri';
+import { useState } from 'react';
 
 const QualificationLists = (props) => {
+  const [editingExperience, setEditingExperience] = useState(null);
+
+  const handleEditClick = (experience) => {
+    setEditingExperience(experience);
+  };
+
+  const handleUpdateExperience = (id, field, value) => {
+    const updatedExperiences = props.educationExperiences.map((experience) =>
+      experience.id === id ? { ...experience, [field]: value } : experience
+    );
+    props.setEducationExperiences(updatedExperiences);
+  };
+
   return (
     <>
       {props.educationExperiences.map((educationExperience) => (
@@ -16,44 +30,65 @@ const QualificationLists = (props) => {
             />{' '}
             {educationExperience.universityName}{' '}
             <FaCog
-              onClick={() => props.EditQualification(educationExperience.id)}
+              onClick={() => handleEditClick(educationExperience)}
               className="icon"
             />
           </h5>
-          <form
-            className="edit-qualification-form active"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <input
-              type="text"
-              value={educationExperience.universityName}
-              onChange={(e) => {
-                console.log(e.value);
-              }}
-            />
-            <input
-              type="text"
-              value={educationExperience.qualification}
-              onChange={(e) => {
-                console.log(e.target.value);
-              }}
-            />
-            <input
-              type="text"
-              value={educationExperience.location}
-              onChange={(e) => {
-                console.log(e.target.value);
-              }}
-            />
-            <input
-              type="text"
-              value={educationExperience.duration}
-              onChange={(e) => {
-                console.log(e.target.value);
-              }}
-            />
-            <button className="update-qualification-btn">Update</button>
-          </form>
+          {editingExperience &&
+            editingExperience.id === educationExperience.id && (
+              <form
+                className="edit-qualification-form active"
+                onSubmit={(e) => e.preventDefault()}
+              >
+                <input
+                  type="text"
+                  value={educationExperience.universityName}
+                  onChange={(e) =>
+                    handleUpdateExperience(
+                      educationExperience.id,
+                      'universityName',
+                      e.target.value
+                    )
+                  }
+                />
+                <input
+                  type="text"
+                  value={educationExperience.qualification}
+                  onChange={(e) =>
+                    handleUpdateExperience(
+                      educationExperience.id,
+                      'qualification',
+                      e.target.value
+                    )
+                  }
+                />
+                <input
+                  type="text"
+                  value={educationExperience.location}
+                  onChange={(e) =>
+                    handleUpdateExperience(
+                      educationExperience.id,
+                      'location',
+                      e.target.value
+                    )
+                  }
+                />
+                <input
+                  type="text"
+                  value={educationExperience.duration}
+                  onChange={(e) =>
+                    handleUpdateExperience(
+                      educationExperience.id,
+                      'duration',
+                      e.target.value
+                    )
+                  }
+                />
+                <button onClick={() => setEditingExperience(null)}>
+                  Update
+                </button>
+              </form>
+            )}
         </div>
       ))}
     </>

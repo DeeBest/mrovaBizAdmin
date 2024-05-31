@@ -84,10 +84,6 @@ const Main = () => {
     setPracticalExperiences(newList);
   };
 
-  const EditQualification = (id) => {
-    console.log(id);
-  };
-
   return (
     <main>
       <CvForm
@@ -96,11 +92,10 @@ const Main = () => {
         addEducationExperiences={addEducationExperiences}
         addPracticalExperiences={addPracticalExperiences}
         educationExperiences={educationExperiences}
+        setEducationExperiences={setEducationExperiences}
         practicalExperiences={practicalExperiences}
         deleteEducationExperience={deleteEducationExperience}
         deletePracticalExperience={deletePracticalExperience}
-        setEducationExperiences={setEducationExperiences}
-        EditQualification={EditQualification}
       />
       <CvDisplay
         personalDetails={personalDetails}
