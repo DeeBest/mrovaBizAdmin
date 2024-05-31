@@ -30,7 +30,9 @@ const QualificationLists = (props) => {
             />{' '}
             {educationExperience.universityName}{' '}
             <FaCog
-              onClick={() => handleEditClick(educationExperience)}
+              onClick={() => {
+                handleEditClick(educationExperience);
+              }}
               className="icon"
             />
           </h5>
@@ -38,7 +40,10 @@ const QualificationLists = (props) => {
             editingExperience.id === educationExperience.id && (
               <form
                 className="edit-qualification-form active"
-                onSubmit={(e) => e.preventDefault()}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setEditingExperience(null);
+                }}
               >
                 <input
                   type="text"
@@ -84,9 +89,7 @@ const QualificationLists = (props) => {
                     )
                   }
                 />
-                <button onClick={() => setEditingExperience(null)}>
-                  Update
-                </button>
+                <button className="update-details-btn">Update</button>
               </form>
             )}
         </div>

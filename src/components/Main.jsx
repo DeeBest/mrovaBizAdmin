@@ -94,6 +94,7 @@ const Main = () => {
         educationExperiences={educationExperiences}
         setEducationExperiences={setEducationExperiences}
         practicalExperiences={practicalExperiences}
+        setPracticalExperiences={setPracticalExperiences}
         deleteEducationExperience={deleteEducationExperience}
         deletePracticalExperience={deletePracticalExperience}
       />

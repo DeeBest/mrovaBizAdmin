@@ -87,6 +87,7 @@ const CvForm = (props) => {
       <PracticalExperienceLists
         practicalExperiences={props.practicalExperiences}
         deletePracticalExperience={props.deletePracticalExperience}
+        setPracticalExperiences={props.setPracticalExperiences}
       />
     </div>
   );

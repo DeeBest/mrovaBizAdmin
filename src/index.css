@@ -124,10 +124,11 @@ textarea:focus {
   border-radius: 10px;
 }
 textarea {
+  height: 100px;
   resize: none;
 }
 .save-education-btn,
-.update-qualification-btn,
+.update-details-btn,
 .update-experience-btn {
   align-self: center;
   width: 40%;
@@ -145,7 +146,7 @@ textarea {
     box-shadow 500ms ease-in-out;
 }
 .save-education-btn:hover,
-.update-qualification-btn:hover,
+.update-details-btn:hover,
 .update-experience-btn:hover {
   transform: scale(0.99);
   opacity: 0.9;
