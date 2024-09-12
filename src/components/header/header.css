@@ -1,0 +1,32 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+.logo-div h1 span {
+  color: #842c2a;
+}
+nav,
+nav ul,
+nav ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav ul li {
+  flex-direction: column;
+}
+nav ul {
+  list-style: none;
+  gap: 15px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.2rem;
+  transition: color 500ms ease-in-out;
+}
+nav ul li a:hover {
+  color: #842c2a;
+}

@@ -1,342 +1,234 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Libre Baskerville', 'Times New Roman', Times, serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 body {
   min-width: 100vw;
   min-height: 100vh;
-  background: linear-gradient(to bottom right, #cdfef3, #9c88dd, #6875ca);
-  color: #0f0b36;
-  overflow-x: hidden;
 }
 html {
   font-size: 1rem;
 }
 #root {
-  min-width: 100vw;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #f0e5f2;
+  color: #0f0b36;
+  overflow-x: hidden;
   position: relative;
 }
 header,
-main,
 footer {
-  min-width: 100vw;
-  padding: 20px;
-  display: flex;
-}
-header,
-footer {
-  height: 100px;
+  padding: 30px;
+  width: 100%;
 }
 header {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   position: fixed;
-  top: 0px;
-  z-index: 99999;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.8);
-  background: linear-gradient(to top right, #cdfef3, #9c88dd, #6875ca);
-}
-#logo-container {
-  display: flex;
-  font-size: 1.1rem;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-#logo-container img {
-  width: 3rem;
+  background-color: #f0e5f2;
+  z-index: 10;
 }
 main {
   flex: 1;
-  gap: 10px;
-  justify-content: center;
-  align-items: flex-start;
-  height: 100vh;
-  z-index: 2;
-  padding: 130px 20px;
+  padding-top: 100px;
 }
-.details-container {
+.content-div {
+  width: 100%;
+  height: 100%;
+}
+.home {
   display: flex;
-  flex-direction: column;
-  max-width: 400px;
-  width: 35%;
-  gap: 10px;
-  padding: 10px;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
 }
-label,
-input {
-  display: block;
-}
-label {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-.section-heading-container {
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
-  padding: 10px;
-  border-radius: 10px;
+nav {
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
-.section-heading-container h3 {
-  margin-right: auto;
-  margin-left: 5px;
+nav a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1rem;
+  font-weight: 600;
 }
-form {
-  display: none;
+.admin-main-sec {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.businesses-list-div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 10px;
+  margin: 20px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.business-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  min-width: 100%;
-  max-width: 400px;
-  border-bottom: 2px solid #0f0b36;
-  border-radius: 10px;
-  padding: 15px;
+  background-color: white;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.411);
+  border-radius: 5px;
+  gap: 10px;
+  padding: 10px;
+  width: 100%;
 }
-input,
-textarea {
-  margin: 10px 0px;
-  padding: 5px 10px;
-  min-width: 100%;
-  border: none;
-  font-size: 0.9rem;
-  font-weight: 510;
-  color: #0f0b36;
-  border-bottom: 1px solid #6875ca;
-  background-color: transparent;
+.business-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
 }
-input:focus,
-textarea:focus {
-  outline: 1.5px solid #0f0b36;
-  border: none;
-  border-radius: 10px;
+.business-card-btns-div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
 }
-textarea {
-  height: 100px;
-  resize: none;
-}
-.save-education-btn,
-.update-details-btn,
-.update-experience-btn,
-.download-cv-btn {
-  align-self: center;
-  width: 40%;
-  padding: 5px 10px;
-  background-color: #85d363;
+.business-card-btns-div button,
+.add-business-div form button,
+.login-form button,
+.logout-btn {
+  padding: 10px 20px;
   border: none;
   outline: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  font-weight: 400;
-  color: #cbfef3;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  font-weight: 550;
   cursor: pointer;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
-  transition: transform 500ms ease-in-out, opacity 500ms ease-in-out,
-    box-shadow 500ms ease-in-out;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.603);
+  transition: opacity 500ms ease-in-out, box-shadow 500ms ease-in-out,
+    transform 500ms ease-in-out;
 }
-.download-cv-btn:hover,
-.save-education-btn:hover,
-.update-details-btn:hover,
-.update-experience-btn:hover {
-  transform: scale(0.99);
-  opacity: 0.9;
+.edit-business-btn,
+.add-business-div form button,
+.login-form button {
+  background-color: #e89df5;
+}
+.delete-business-btn,
+.logout-btn {
+  background-color: tomato;
+}
+.business-card-btns-div button:hover,
+.add-business-div form button:hover,
+.login-form button:hover,
+.logout-btn:hover {
+  opacity: 0.8;
   box-shadow: none;
+  transform: scale(0.99);
 }
-.download-cv-btn {
-  width: 10%;
-  align-self: flex-start;
-}
-.cv-display {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  max-width: 800px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
-  padding: 0px 20px 20px 20px;
-  background-color: white;
-  min-height: 650px;
-}
-.cv-display section {
-  min-width: 100%;
-}
-.cv-display section h3,
-h2 {
-  margin-bottom: 10px;
-  text-align: center;
-}
-.cv-display section h3 {
-  margin-top: 10px;
-}
-.cv-display section p,
-.personal-details-icons,
-span {
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-.educational-experience h3 {
-  align-self: center;
-}
-.personal-details,
-.educational-experience,
-.practical-experience {
-  display: flex;
-  flex-direction: column;
-}
-.personal-details div {
+.add-business-div {
   display: flex;
   align-items: center;
-  gap: 5px;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
 }
-section hr {
-  width: 70%;
-  height: 4px;
-  background-color: #0f0b36;
-  margin-bottom: 15px;
-  align-self: center;
-}
-.qualification-container {
-  margin-bottom: 15px;
-}
-.practical-experience-container {
-  margin-bottom: 15px;
-}
-.divider {
+.add-business-div form,
+.login-form {
   display: flex;
-  justify-content: space-between;
-  gap: 15px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.281);
+  width: 350px;
+  border-radius: 5px;
+  gap: 10px;
 }
-.section-details {
+.add-business-div form label {
+  display: none;
+}
+.add-business-div form input,
+.add-business-div form textarea,
+.login-form input {
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 0.7;
+  font-weight: 500;
+  background-color: #f0e5f2;
+  color: #0f0b36;
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+}
+.add-business-div form textarea {
+  resize: none;
+  height: 100px;
+}
+.add-business-div form input:focus,
+.add-business-div form textarea:focus,
+.login-form input:focus {
+  outline: 1.5px solid #0f0b36;
+}
+.add-business-div form button,
+.login-form button {
+  width: 100%;
+}
+.business-sec-card {
+  width: 350px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
-  width: 50%;
-  overflow-wrap: break-word;
-  overflow: hidden;
-}
-.duties-description {
-  min-width: 100%;
-  margin-top: 6.5px;
-}
-.experiences-list,
-.qualifications-list {
-  display: flex;
-  flex-direction: column;
-  padding: 0px 20px;
-  margin-top: 10px;
-}
-.experiences-list h5,
-.qualifications-list h5 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.icon {
-  font-size: 1.3rem;
-  cursor: pointer;
-}
-.icon:hover {
-  opacity: 0.8;
-  scale: 0.98;
-}
-.delete-icon {
-  color: tomato;
-}
-.display-form-icon {
-  font-size: 2rem;
-  color: #1a4e03;
-}
-footer {
-  font-size: 1rem;
-  font-weight: 540;
-  flex-direction: column;
-  text-align: center;
   justify-content: center;
-  align-items: center;
-  gap: 5px;
-  position: fixed;
-  bottom: 0px;
-  z-index: 999999;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.8);
-  background: linear-gradient(to top left, #9c88dd, #6875ca);
-}
-footer .contact-icons {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  padding: 10px;
   gap: 10px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.507);
+  font-size: 0.9rem;
 }
-.contact-icons img {
-  width: 2.4rem;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
-  padding: 3px;
-  border-radius: 5px;
-  transition: opacity 0.5s ease-in-out, box-shadow 0.5s ease-in-out,
-    transform 0.5s ease-in-out;
+.business-sec-card img {
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.486);
 }
-.contact-icons img:hover {
-  opacity: 0.7;
-  box-shadow: none;
-  transform: scale(0.98);
-  transform: rotateZ(90deg);
+.business-sec-card h5,
+.business-sec-card h3,
+.business-sec-card img {
+  align-self: center;
 }
-.active {
+.business-sec-card div {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
 }
 
-@media screen and (max-width: 1000px) {
-  main {
+@media (max-width: 750px) {
+  .home {
     flex-direction: column;
   }
-  .cv-display {
-    min-width: 100%;
-  }
-  .details-container {
-    min-width: 80%;
-    align-self: center;
-  }
-  .details-container input {
-    min-width: 100%;
-  }
-  .download-cv-btn {
-    width: 50%;
-    align-self: center;
-  }
-}
-@media screen and (max-width: 650px) {
-  .cv-display section {
-    min-width: 100%;
-  }
-  .details-container {
-    min-width: 100%;
-  }
-  .divider {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-  .section-details {
+  .businesses-list-div {
     width: 100%;
   }
-  .download-cv-btn {
-    width: 80%;
+}
+@media (max-width: 500px) {
+  html {
+    font-size: 0.6rem;
   }
 }
-@media screen and (max-width: 320px) {
-  .personal-details-icons {
-    display: none;
+@media (max-width: 360px) {
+  .business-card-btns-div {
+    flex-direction: column;
+    width: 100%;
+  }
+  .business-card-btns-div button {
+    width: 100%;
   }
 }
