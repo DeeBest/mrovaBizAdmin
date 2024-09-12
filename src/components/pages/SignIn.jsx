@@ -3,14 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { Context } from '../../context/context';
 
 const SignIn = () => {
-  const { setIsLoggedIn, successToast, errorToast, setToken, token } =
+  const { setIsLoggedIn, successToast, errorToast, setToken, backendUrl } =
     useContext(Context);
   const [user, setUser] = useState({ email: '', password: '' });
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://localhost:5000/users/user-login', {
+      const response = await fetch(`${backendUrl}/users/user-login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -6,11 +6,11 @@ const BusinessesList = () => {
   const { businesses, fetchBusinesses, successToast, errorToast, isLoggedIn } =
     useContext(Context);
   const navigate = useNavigate();
-  const { token } = useContext(Context);
+  const { token, backendUrl } = useContext(Context);
 
   const handleBusinessDelete = async (id) => {
     try {
-      fetch(`http://localhost:5000/api/businesses/delete-business/${id}`, {
+      fetch(`${backendUrl}/api/businesses/delete-business/${id}`, {
         method: 'DELETE',
         headers: {
           authorization: `Bearer ${token}`,

@@ -15,8 +15,14 @@ const AddBusiness = () => {
     imageUrl: '',
   });
   const [image, setImage] = useState(false);
-  const { fetchBusinesses, successToast, errorToast, token, isLoggedIn } =
-    useContext(Context);
+  const {
+    fetchBusinesses,
+    successToast,
+    errorToast,
+    token,
+    isLoggedIn,
+    backendUrl,
+  } = useContext(Context);
   const navigate = useNavigate();
 
   const handleAddBusiness = async (e) => {
@@ -26,7 +32,7 @@ const AddBusiness = () => {
     formData.append('businessImage', image);
 
     try {
-      const postImage = await fetch('http://localhost:5000/upload', {
+      const postImage = await fetch(`${backendUrl}/upload`, {
         method: 'POST',
         headers: {
           authorization: `Bearer ${token}`,
@@ -36,7 +42,7 @@ const AddBusiness = () => {
       const data = await postImage.json();
 
       const response = await fetch(
-        'http://localhost:5000/api/businesses/add-business',
+        `${backendUrl}/api/businesses/add-business`,
         {
           method: 'POST',
           headers: {

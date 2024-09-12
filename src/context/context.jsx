@@ -11,6 +11,7 @@ const errorToast = (message) => {
 };
 
 export const Context = createContext(null);
+const backendUrl = 'http://localhost:5000';
 
 const ContextProvider = (props) => {
   const [businesses, setBusinesses] = useState([]);
@@ -20,7 +21,7 @@ const ContextProvider = (props) => {
   const fetchBusinesses = async () => {
     try {
       const response = await (
-        await fetch('http://localhost:5000/api/businesses')
+        await fetch(`${backendUrl}/api/businesses`)
       ).json();
       setBusinesses(response.businesses);
     } catch (err) {
@@ -42,6 +43,7 @@ const ContextProvider = (props) => {
     setIsLoggedIn,
     token,
     setToken,
+    backendUrl,
   };
 
   return (

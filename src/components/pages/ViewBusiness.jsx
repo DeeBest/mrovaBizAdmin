@@ -5,19 +5,17 @@ import { Context } from '../../context/context';
 const ViewBusiness = () => {
   const [business, setBusiness] = useState({});
   const { id } = useParams();
-  const { token, errorToast, successToast, isLoggedIn } = useContext(Context);
+  const { token, errorToast, successToast, isLoggedIn, backendUrl } =
+    useContext(Context);
   const navigate = useNavigate();
 
   const fetchBusiness = async () => {
     try {
-      const response = await fetch(
-        `http://localhost:5000/api/businesses/${id}`,
-        {
-          headers: {
-            authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await fetch(`${backendUrl}/api/businesses/${id}`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
 
       if (response.status === 200) {
         const data = await response.json();
