@@ -11,7 +11,7 @@ const errorToast = (message) => {
 };
 
 export const Context = createContext(null);
-const backendUrl = 'http://localhost:5000';
+const backendUrl = 'https://mrovabizbackend.onrender.com';
 
 const ContextProvider = (props) => {
   const [businesses, setBusinesses] = useState([]);
