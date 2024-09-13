@@ -157,7 +157,8 @@ nav a {
 }
 .add-business-div form input,
 .add-business-div form textarea,
-.login-form input {
+.login-form input,
+.add-business-div form select {
   padding: 10px;
   border: none;
   outline: none;
@@ -175,7 +176,8 @@ nav a {
 }
 .add-business-div form input:focus,
 .add-business-div form textarea:focus,
-.login-form input:focus {
+.login-form input:focus,
+.add-business-div form select:focus {
   outline: 1.5px solid #0f0b36;
 }
 .add-business-div form button,
