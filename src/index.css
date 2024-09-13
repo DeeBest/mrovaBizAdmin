@@ -211,6 +211,9 @@ nav a {
   gap: 20px;
   width: 100%;
 }
+.error {
+  color: tomato;
+}
 
 @media (max-width: 750px) {
   .home {
