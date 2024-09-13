@@ -3,6 +3,15 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import { Context } from '../../context/context';
 
+const categories = [
+  'food',
+  'rooms',
+  'hygiene',
+  'finance',
+  'mechanics',
+  'fashion',
+];
+
 const EditBusiness = () => {
   const [business, setBusiness] = useState({});
   const { id } = useParams();
@@ -15,6 +24,7 @@ const EditBusiness = () => {
     backendUrl,
   } = useContext(Context);
   const navigate = useNavigate();
+  const [errors, setErrors] = useState({});
 
   const fetchBusiness = async () => {
     try {
@@ -39,8 +49,37 @@ const EditBusiness = () => {
     fetchBusiness();
   }, []);
 
+  // Validation function
+  const validateForm = () => {
+    let validationErrors = {};
+    if (!business.businessName.trim())
+      validationErrors.businessName = 'Business name is required.';
+    if (!business.email || !/\S+@\S+\.\S+/.test(business.email))
+      validationErrors.email = 'A valid email is required.';
+    if (!business.phoneNumber || !/^\d+$/.test(business.phoneNumber))
+      validationErrors.phoneNumber =
+        'Phone number should contain only numbers.';
+    if (!business.location.trim())
+      validationErrors.location = 'Location is required.';
+    if (!business.openingTime.trim())
+      validationErrors.openingTime = 'Opening time is required.';
+    if (!business.closingTime.trim())
+      validationErrors.closingTime = 'Closing time is required.';
+    if (!business.businessDescription.trim())
+      validationErrors.businessDescription = 'Description is required.';
+
+    return validationErrors;
+  };
+
   const handleEditBusiness = async (e) => {
     e.preventDefault();
+
+    // Validate the form
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
 
     try {
       const response = await fetch(
@@ -84,27 +123,31 @@ const EditBusiness = () => {
               setBusiness({ ...business, businessName: e.target.value })
             }
           />
+          {errors.businessName && (
+            <span className="error">{errors.businessName}</span>
+          )}
+
           <label htmlFor="category">Business Category:</label>
-          <input
-            type="text"
+          <select
             name="category"
             id="category"
-            minLength={3}
-            maxLength={40}
-            required
-            placeholder="Business Category"
             value={business.category}
             onChange={(e) =>
               setBusiness({ ...business, category: e.target.value })
             }
-          />
+          >
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+
           <label htmlFor="email">Business Email:</label>
           <input
             type="email"
             name="email"
             id="email"
-            minLength={3}
-            maxLength={40}
             required
             placeholder="Business Email"
             value={business.email}
@@ -112,13 +155,13 @@ const EditBusiness = () => {
               setBusiness({ ...business, email: e.target.value })
             }
           />
+          {errors.email && <span className="error">{errors.email}</span>}
+
           <label htmlFor="phoneNumber">Business Phone:</label>
           <input
             type="tel"
             name="phoneNumber"
             id="phoneNumber"
-            minLength={3}
-            maxLength={40}
             required
             placeholder="Business Phone"
             value={business.phoneNumber}
@@ -126,13 +169,15 @@ const EditBusiness = () => {
               setBusiness({ ...business, phoneNumber: e.target.value })
             }
           />
+          {errors.phoneNumber && (
+            <span className="error">{errors.phoneNumber}</span>
+          )}
+
           <label htmlFor="location">Business Location:</label>
           <input
             type="text"
             name="location"
             id="location"
-            minLength={3}
-            maxLength={40}
             required
             placeholder="Business Location"
             value={business.location}
@@ -140,13 +185,13 @@ const EditBusiness = () => {
               setBusiness({ ...business, location: e.target.value })
             }
           />
+          {errors.location && <span className="error">{errors.location}</span>}
+
           <label htmlFor="openingTime">Business Opening Time:</label>
           <input
             type="text"
             name="openingTime"
             id="openingTime"
-            minLength={3}
-            maxLength={40}
             required
             placeholder="Business Opening Time"
             value={business.openingTime}
@@ -154,13 +199,15 @@ const EditBusiness = () => {
               setBusiness({ ...business, openingTime: e.target.value })
             }
           />
+          {errors.openingTime && (
+            <span className="error">{errors.openingTime}</span>
+          )}
+
           <label htmlFor="closingTime">Business Closing Time:</label>
           <input
             type="text"
             name="closingTime"
             id="closingTime"
-            minLength={3}
-            maxLength={40}
             required
             placeholder="Business Closing Time"
             value={business.closingTime}
@@ -168,12 +215,14 @@ const EditBusiness = () => {
               setBusiness({ ...business, closingTime: e.target.value })
             }
           />
+          {errors.closingTime && (
+            <span className="error">{errors.closingTime}</span>
+          )}
+
           <label htmlFor="businessDescription">Business Description:</label>
           <textarea
             name="businessDescription"
             id="businessDescription"
-            minLength={3}
-            maxLength={300}
             required
             placeholder="Business Description"
             value={business.businessDescription}
@@ -184,8 +233,12 @@ const EditBusiness = () => {
               })
             }
           />
+          {errors.businessDescription && (
+            <span className="error">{errors.businessDescription}</span>
+          )}
+
           <button type="submit" onClick={handleEditBusiness}>
-            Update Business
+            Add Business
           </button>
         </form>
       </div>
